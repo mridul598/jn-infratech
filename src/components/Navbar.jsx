@@ -25,7 +25,7 @@ export default function Navbar() {
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled
           ? "bg-white shadow-md text-gray-800"
-          : "bg-transparent text-black/90"
+          : "bg-transparent backdrop-blur-md text-black/90"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -56,24 +56,70 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Button */}
-        <button 
-          className="md:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          ☰
+        <button
+          className="md:hidden p-2 rounded-md focus:outline-none"
+           onClick={() => setIsOpen(!isOpen)}
+          >
+         <span className="text-2xl">☰</span>
         </button>
       </div>
 
-      {/* Mobile Menu */}
+            {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white px-6 pb-4 space-y-3 text-gray-800">
-          <NavLink to="/" onClick={()=>setIsOpen(false)} className={linkStyle}>Home</NavLink>
-          <NavLink to="/about" onClick={()=>setIsOpen(false)} className={linkStyle}>About</NavLink>
-          <NavLink to="/services" onClick={()=>setIsOpen(false)} className={linkStyle}>Services</NavLink>
-          <NavLink to="/projects" onClick={()=>setIsOpen(false)} className={linkStyle}>Projects</NavLink>
-          <NavLink to="/contact" onClick={()=>setIsOpen(false)} className={linkStyle}>Contact</NavLink>
+        <div className="md:hidden bg-white px-6 py-6 space-y-5 text-gray-800 shadow-lg">
+
+          <NavLink
+            to="/"
+            onClick={()=>setIsOpen(false)}
+            className={({ isActive }) =>
+              `${isActive ? "text-teal-600 font-semibold" : "text-gray-700"} block py-3 text-base border-b border-gray-100`
+            }
+          >
+            Home
+          </NavLink>
+
+          <NavLink
+            to="/about"
+            onClick={()=>setIsOpen(false)}
+            className={({ isActive }) =>
+              `${isActive ? "text-teal-600 font-semibold" : "text-gray-700"} block py-3 text-base border-b border-gray-100`
+            }
+          >
+            About
+          </NavLink>
+
+          <NavLink
+            to="/services"
+            onClick={()=>setIsOpen(false)}
+            className={({ isActive }) =>
+              `${isActive ? "text-teal-600 font-semibold" : "text-gray-700"} block py-3 text-base border-b border-gray-100`
+            }
+          >
+            Services
+          </NavLink>
+
+          <NavLink
+            to="/projects"
+            onClick={()=>setIsOpen(false)}
+            className={({ isActive }) =>
+              `${isActive ? "text-teal-600 font-semibold" : "text-gray-700"} block py-3 text-base border-b border-gray-100`
+            }
+          >
+            Projects
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            onClick={()=>setIsOpen(false)}
+            className={({ isActive }) =>
+              `${isActive ? "text-teal-600 font-semibold" : "text-gray-700"} block py-3 text-base`
+            }
+          >
+            Contact
+          </NavLink>
+
         </div>
       )}
-    </nav>
+          </nav>
   )
 }

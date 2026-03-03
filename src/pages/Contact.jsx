@@ -84,7 +84,7 @@ export default function Contact() {
 
               <p className="flex items-center gap-3">
                 <Mail size={18} className="text-teal-600" />
-                info@jninfratech.com
+                jninfratechandsolutions@gmail.com
               </p>
 
               <p className="flex items-center gap-3">

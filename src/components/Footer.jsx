@@ -48,7 +48,7 @@ export default function Footer() {
               <Phone size={16} /> +91 9555214282
             </p>
             <p className="flex items-center gap-2">
-              <Mail size={16} /> info@jninfratech.com
+              <Mail size={16} /> jninfratechandsolutions@gmail.com
             </p>
             <p className="flex items-center gap-2">
               <MapPin size={16} /> Kanpur, Uttar Pradesh
