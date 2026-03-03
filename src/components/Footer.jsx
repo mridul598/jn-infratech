@@ -45,7 +45,7 @@ export default function Footer() {
           <h4 className="text-white font-semibold mb-4">Contact</h4>
           <div className="space-y-3 text-sm">
             <p className="flex items-center gap-2">
-              <Phone size={16} /> +91 98765 43210
+              <Phone size={16} /> +91 9555214282
             </p>
             <p className="flex items-center gap-2">
               <Mail size={16} /> info@jninfratech.com
