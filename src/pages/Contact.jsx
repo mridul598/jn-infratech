@@ -79,7 +79,7 @@ export default function Contact() {
             <div className="space-y-6 text-gray-700">
               <p className="flex items-center gap-3">
                 <Phone size={18} className="text-teal-600" />
-                +91 98765 43210
+                +91 9555214282
               </p>
 
               <p className="flex items-center gap-3">
