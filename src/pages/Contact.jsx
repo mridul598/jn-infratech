@@ -1,6 +1,6 @@
 import { useState, useRef } from "react"
 import { Phone, Mail, MapPin } from "lucide-react"
-import emailjs from "@emailjs/browser"
+
 import { Helmet } from "react-helmet-async"
 
 export default function Contact() {
@@ -20,34 +20,37 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
   e.preventDefault()
   setLoading(true)
   setSuccess(false)
 
-  emailjs
-    .sendForm(
-      "service_8f0nsvk",
-      "template_85ns9qf",
-      formRef.current,
-      "q0hoOJSYI8o-TZHtR"
-    )
-    .then(
-      () => {
-        setLoading(false)
-        setSuccess(true)
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          message: "",
-        })
+  try {
+    const response = await fetch("/api/hubspot", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      () => {
-        setLoading(false)
-        alert("Something went wrong. Please try again.")
-      }
-    )
+      body: JSON.stringify(formData),
+    })
+
+    if (response.ok) {
+      setSuccess(true)
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      })
+    } else {
+      alert("Something went wrong.")
+    }
+  } catch (error) {
+  console.error(error)
+  alert("Server error.")
+}
+
+  setLoading(false)
 }
 
   return (
