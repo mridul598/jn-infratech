@@ -8,6 +8,7 @@ import Contact from "./pages/Contact"
 import Footer from "./components/Footer"
 import WhatsAppButton from "./components/WhatsAppButton"
 import ScrollToTop from "./components/ScrollToTop"
+import StickyCall from "./components/StickyCall"
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
       </Routes>
       <Footer />
       <WhatsAppButton />
+      <StickyCall />
     </>
   )
 }
